@@ -14,6 +14,7 @@
 		2365C3112360F7710087951A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2365C30F2360F7710087951A /* Main.storyboard */; };
 		2365C3132360F7720087951A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2365C3122360F7720087951A /* Assets.xcassets */; };
 		2365C3162360F7720087951A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2365C3142360F7720087951A /* LaunchScreen.storyboard */; };
+		2365C31E2360FE3B0087951A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2365C31D2360FE3B0087951A /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2365C3122360F7720087951A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2365C3152360F7720087951A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2365C3172360F7720087951A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2365C31D2360FE3B0087951A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				2365C3092360F7710087951A /* SceneDelegate.swift */,
 				2365C30B2360F7710087951A /* FirstViewController.swift */,
 				2365C30D2360F7710087951A /* SecondViewController.swift */,
+				2365C31D2360FE3B0087951A /* Data.swift */,
 				2365C30F2360F7710087951A /* Main.storyboard */,
 				2365C3122360F7720087951A /* Assets.xcassets */,
 				2365C3142360F7720087951A /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2365C30E2360F7710087951A /* SecondViewController.swift in Sources */,
+				2365C31E2360FE3B0087951A /* Data.swift in Sources */,
 				2365C30C2360F7710087951A /* FirstViewController.swift in Sources */,
 				2365C3082360F7710087951A /* AppDelegate.swift in Sources */,
 				2365C30A2360F7710087951A /* SceneDelegate.swift in Sources */,
