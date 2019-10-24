@@ -8,16 +8,35 @@
 
 import UIKit
 
+class HeadlineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var headlineTitleLabel: UILabel!
+    @IBOutlet weak var headlineTextLabel: UILabel!
+    @IBOutlet weak var headlineImageView: UIImageView!
+}
+
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = products[indexPath.row].name
-        
-        return cell
+        //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+        //cell.textLabel?.text = products[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                            as! HeadlineTableViewCell
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+
+        //return (dateFormatter.date(from: dateString) ?? nil)!
+
+        cell.headlineTitleLabel?.text = products[indexPath.row].name
+        cell.headlineTextLabel?.text = dateFormatter.string(from: products[indexPath.row].date)
+        //cell.headlineImageView?.image = UIImage(named: headline.image)
+
+            return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

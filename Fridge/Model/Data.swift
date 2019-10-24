@@ -10,7 +10,7 @@ import Foundation
 
 class Item {
     var name : String?
-    var date : Date?
+    var date : Date
     
     init(name : String, date : Date){
         self.name = name
@@ -18,12 +18,12 @@ class Item {
     }
 }
 
-let test = Item(name: "test", date: dateToString(dateString: "22/01/2019"))
-let test2 = Item(name: "test2", date: dateToString(dateString: "23/01/2019"))
+let test = Item(name: "test", date: stringToDate(dateString: "22/01/2019"))
+let test2 = Item(name: "test2", date: stringToDate(dateString: "23/01/2019"))
 
 var products : [Item] = [test, test2]
 
-func dateToString(dateString : String) -> Date {
+func stringToDate(dateString : String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd/MM/yyyy"
 

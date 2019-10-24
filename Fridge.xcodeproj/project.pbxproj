@@ -60,17 +60,49 @@
 		2365C3062360F7710087951A /* Fridge */ = {
 			isa = PBXGroup;
 			children = (
+				237DEEAD2361A69B00966201 /* Model */,
+				237DEEAC2361A68A00966201 /* View */,
+				237DEEAE2361A6A300966201 /* Controller */,
+				237DEEAF2361A6BB00966201 /* Supporting Files */,
+				2365C3172360F7720087951A /* Info.plist */,
+			);
+			path = Fridge;
+			sourceTree = "<group>";
+		};
+		237DEEAC2361A68A00966201 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2365C30F2360F7710087951A /* Main.storyboard */,
+				2365C3142360F7720087951A /* LaunchScreen.storyboard */,
+				2365C3122360F7720087951A /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		237DEEAD2361A69B00966201 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2365C31D2360FE3B0087951A /* Data.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		237DEEAE2361A6A300966201 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				2365C3072360F7710087951A /* AppDelegate.swift */,
 				2365C3092360F7710087951A /* SceneDelegate.swift */,
 				2365C30B2360F7710087951A /* FirstViewController.swift */,
 				2365C30D2360F7710087951A /* SecondViewController.swift */,
-				2365C31D2360FE3B0087951A /* Data.swift */,
-				2365C30F2360F7710087951A /* Main.storyboard */,
-				2365C3122360F7720087951A /* Assets.xcassets */,
-				2365C3142360F7720087951A /* LaunchScreen.storyboard */,
-				2365C3172360F7720087951A /* Info.plist */,
 			);
-			path = Fridge;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		237DEEAF2361A6BB00966201 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

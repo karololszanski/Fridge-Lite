@@ -19,6 +19,7 @@ class SecondViewController: UIViewController {
         inputName.text = ""
         inputDate.date = Date()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
