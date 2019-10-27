@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SQLite
 
 class HeadlineTableViewCell: UITableViewCell {
     
@@ -17,32 +18,34 @@ class HeadlineTableViewCell: UITableViewCell {
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        resetArray()
+        print("Size = ", sizeArray)
+        return sizeArray
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        //cell.textLabel?.text = products[indexPath.row].name
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                             as! HeadlineTableViewCell
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-
-        //return (dateFormatter.date(from: dateString) ?? nil)!
-
-        cell.headlineTitleLabel?.text = products[indexPath.row].name
-        cell.headlineTextLabel?.text = dateFormatter.string(from: products[indexPath.row].date)
+        cell.headlineTitleLabel?.text = productsArray[indexPath.row].name
+        cell.headlineTextLabel?.text = productsArray[indexPath.row].date
         //cell.headlineImageView?.image = UIImage(named: headline.image)
 
-            return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            products.remove(at: indexPath.row)
             
+            print("Index product: ", productsArray[indexPath.row].id)
+            let product = productsTable.filter(id == productsArray[indexPath.row].id)
+            let deleteProduct = product.delete()
+            do {
+                try databaseData.run(deleteProduct)
+            } catch {
+                print(error)
+            }
             myTableView.reloadData()
         }
     }
@@ -54,16 +57,22 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var myTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let fileUrl = documentDirectory.appendingPathComponent("products").appendingPathExtension("sqlite3")
+            let database = try Connection(fileUrl.path)
+            databaseData = database
+        } catch { print(error)}
+        
+        creatingTable()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view.
     }
+    
     @objc func dismissKeyboard() {
-    //Causes the view (or one of its embedded text fields) to resign the first responder status.
     view.endEditing(true)
     }
-
 
 }
 

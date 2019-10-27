@@ -7,22 +7,64 @@
 //
 
 import Foundation
-import SQLite3
+import SQLite
+
+var databaseData : Connection!
+let productsTable = Table("products")
+
+let id = Expression<Int>("id")
+let name = Expression<String?>("name")
+let qty = Expression<Int>("qty")
+let date = Expression<String>("date")
+
+let createTable = productsTable.create { (table) in
+    table.column(id, primaryKey: true)
+    table.column(name)
+    table.column(qty)
+    table.column(date)
+}
+
+func creatingTable() {
+    print("Creating table")
+    do {
+        try databaseData.run(createTable)
+        print("Created table")
+    } catch {
+        print(error)
+    }
+}
 
 class Item {
+    var id : Int
     var name : String?
-    var date : Date
+    var qty : Int
+    var date : String
     
-    init(name : String, date : Date){
+    init(id : Int,name : String?,qty : Int,date : String){
+        self.id = id
         self.name = name
+        self.qty = qty
         self.date = date
     }
 }
 
-let test = Item(name: "test", date: stringToDate(dateString: "22/01/2019"))
-let test2 = Item(name: "test2", date: stringToDate(dateString: "23/01/2019"))
+var sizeArray : Int = 0
+var productsArray : [Item] = []
 
-var products : [Item] = [test, test2]
+func resetArray(){
+    sizeArray = 0
+    productsArray.removeAll()
+    do {
+        let products = try databaseData.prepare(productsTable)
+        for product in products {
+            productsArray.append(Item(id: product[id],name: product[name], qty: product[qty], date: product[date]))
+            print(product[id], product[name], product[qty], product[date])
+            sizeArray = sizeArray + 1
+        }
+    } catch {
+        print(error)
+    }
+}
 
 func stringToDate(dateString : String) -> Date {
     let dateFormatter = DateFormatter()
