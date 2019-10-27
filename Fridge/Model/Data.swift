@@ -64,6 +64,7 @@ func resetArray(){
     } catch {
         print(error)
     }
+    orderArray()
 }
 
 func stringToDate(dateString : String) -> Date {
@@ -71,4 +72,8 @@ func stringToDate(dateString : String) -> Date {
     dateFormatter.dateFormat = "dd/MM/yyyy"
 
     return (dateFormatter.date(from: dateString) ?? nil)!
+}
+
+func orderArray(){
+    productsArray = productsArray.sorted(by: { stringToDate(dateString: $0.date).compare(stringToDate(dateString: $1.date)) == .orderedAscending })
 }
