@@ -43,6 +43,7 @@ class PopUpViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         stepperValue.minimumValue = 1
         stepperValue.value = 1
         stepperValue.maximumValue = Double(productsArray[productRow].qty)

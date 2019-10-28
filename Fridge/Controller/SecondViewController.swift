@@ -13,6 +13,7 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var inputName: UITextField!
     @IBOutlet weak var inputDate: UIDatePicker!
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var qtyLabel: UILabel!
     @IBOutlet weak var stepperQty: UIStepper!
     @IBAction func stepperChanged(_ sender: UIStepper) {
@@ -20,6 +21,9 @@ class SecondViewController: UIViewController {
     }
     @IBAction func addItem(_ sender: UIButton) {
         
+        if inputName.text == "" {
+            warningLabel.text = "You have to insert product name."
+        } else {
         let insertProduct = productsTable.insert(name <- inputName.text!,qty <- Int(stepperQty.value), date <- dateToString(date: inputDate))
 
         do {
@@ -33,11 +37,12 @@ class SecondViewController: UIViewController {
         
         DataManager.shared.firstVC.myTableView.reloadData()
         dismiss(animated: true) {}
-        
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         inputDate.datePickerMode = UIDatePicker.Mode.date
         let currentDate = Date()  //get the current date
         inputDate.minimumDate = currentDate  //set the current date/time as a minimum
