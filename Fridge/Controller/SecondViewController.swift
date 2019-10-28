@@ -30,6 +30,8 @@ class SecondViewController: UIViewController {
         }
         inputName.text = ""
         inputDate.date = Date()
+        
+        dismiss(animated: true) {}
     }
     
     override func viewDidLoad() {
