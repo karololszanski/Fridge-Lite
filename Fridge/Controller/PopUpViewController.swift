@@ -12,7 +12,7 @@ import SQLite
 class PopUpViewController: UIViewController {
     
     var productRow = 0
-    var whichMode = 0
+    var whichMode = 0 //O - delete; Else - update
     @IBOutlet weak var qtyLabel: UILabel!
     @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var stepperValue: UIStepper!

@@ -103,15 +103,26 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqf-hh-LPS" userLabel="Warning">
+                                                            <rect key="frame" x="102" y="47" width="0.0" height="31"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="31" id="Zzd-NQ-kF4"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="20"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="OFW-qy-peO" firstAttribute="top" secondItem="jP6-uh-Ykh" secondAttribute="topMargin" constant="25" id="1cp-fG-ocU"/>
+                                                        <constraint firstItem="Lqf-hh-LPS" firstAttribute="leading" secondItem="LRl-I4-Zxm" secondAttribute="trailing" constant="30" id="2p1-br-C4T"/>
                                                         <constraint firstItem="OyR-7y-WQN" firstAttribute="top" secondItem="jP6-uh-Ykh" secondAttribute="top" constant="30" id="3eu-NT-ujc"/>
                                                         <constraint firstItem="LRl-I4-Zxm" firstAttribute="leading" secondItem="jP6-uh-Ykh" secondAttribute="leadingMargin" constant="18" id="8k8-cW-Lfz"/>
                                                         <constraint firstItem="LRl-I4-Zxm" firstAttribute="top" secondItem="ILi-7p-Qjk" secondAttribute="bottom" constant="8" id="Oez-DT-hbl"/>
                                                         <constraint firstItem="ILi-7p-Qjk" firstAttribute="top" secondItem="jP6-uh-Ykh" secondAttribute="top" id="Qzv-WP-ruM"/>
                                                         <constraint firstAttribute="trailing" secondItem="OyR-7y-WQN" secondAttribute="trailing" constant="50" id="Tdq-Cr-wX1"/>
                                                         <constraint firstAttribute="trailing" secondItem="ILi-7p-Qjk" secondAttribute="trailing" constant="8" id="Zv2-E0-134"/>
+                                                        <constraint firstItem="Lqf-hh-LPS" firstAttribute="top" secondItem="ILi-7p-Qjk" secondAttribute="bottom" constant="8" id="aa3-g5-K09"/>
                                                         <constraint firstItem="ILi-7p-Qjk" firstAttribute="leading" secondItem="jP6-uh-Ykh" secondAttribute="leading" constant="33" id="gp5-bE-3ef"/>
                                                         <constraint firstItem="OyR-7y-WQN" firstAttribute="leading" secondItem="OFW-qy-peO" secondAttribute="trailing" constant="2.6699999999999999" id="pla-pI-HNA"/>
                                                     </constraints>
@@ -121,6 +132,7 @@
                                                     <outlet property="QtyLabel" destination="OyR-7y-WQN" id="QhJ-Em-5e8"/>
                                                     <outlet property="headlineTextLabel" destination="LRl-I4-Zxm" id="vYB-tJ-Yen"/>
                                                     <outlet property="headlineTitleLabel" destination="ILi-7p-Qjk" id="o7t-Yv-b8k"/>
+                                                    <outlet property="warningLabel" destination="Lqf-hh-LPS" id="cf1-tp-bb6"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -166,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="-314.77832512315274"/>
+            <point key="canvasLocation" x="747.82608695652175" y="-315.40178571428572"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="7dJ-fK-nZb">

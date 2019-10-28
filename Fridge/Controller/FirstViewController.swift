@@ -14,6 +14,7 @@ class HeadlineTableViewCell: UITableViewCell {
     @IBOutlet weak var headlineTitleLabel: UILabel!
     @IBOutlet weak var headlineTextLabel: UILabel!
     @IBOutlet weak var QtyLabel: UILabel!
+    @IBOutlet weak var warningLabel: UILabel!
 }
 
 class DataManager {
@@ -33,7 +34,19 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                             as! HeadlineTableViewCell
         cell.headlineTitleLabel?.text = productsArray[indexPath.row].name
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateFromString = dateFormatter.date(from: productsArray[indexPath.row].date)
         cell.headlineTextLabel?.text = productsArray[indexPath.row].date
+        if (dateFromString?.distance(to: Date()))! > TimeInterval(-172800) {
+            print("Date interval = ", dateFromString?.distance(to: Date()))
+            cell.headlineTextLabel?.textColor = .red
+            cell.warningLabel?.text = "Expiring soon!"
+            cell.warningLabel.textColor = .red
+        } else if (dateFromString?.distance(to: Date()))! >= TimeInterval(0) {
+            cell.warningLabel?.text = "Expired!"
+            cell.warningLabel.textColor = .red
+        }
         cell.QtyLabel?.text = String(productsArray[indexPath.row].qty)
 
         return cell
