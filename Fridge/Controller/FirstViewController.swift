@@ -59,7 +59,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             handler: { (delete, view, completion) in
                 print("Index product: ", productsArray[indexPath.row].id)
                 let product = productsTable.filter(id == productsArray[indexPath.row].id)
-                if  productsArray[indexPath.row].qty > 1{
+                
+                if  productsArray[indexPath.row].qty > 1 {
                     let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
                     popOverVC.updatingQty(row: indexPath.row, whichMode: 0)
                     self.addChild(popOverVC)
@@ -75,6 +76,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                         print(error)
                     }
                 }
+                self.myTableView.reloadData()
                 completion(true)
         })
         
