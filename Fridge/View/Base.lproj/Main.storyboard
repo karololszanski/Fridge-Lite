@@ -277,6 +277,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonLabel" destination="yfm-bz-cdp" id="dgH-tU-9Le"/>
+                        <outlet property="messageLabel" destination="YVl-bK-inH" id="G5l-eI-kVp"/>
                         <outlet property="qtyLabel" destination="28f-YR-XYD" id="mR4-he-0ys"/>
                         <outlet property="stepperValue" destination="l0Z-L8-uY0" id="aJP-Zz-nWy"/>
                     </connections>

@@ -14,6 +14,7 @@ class PopUpViewController: UIViewController {
     var productRow = 0
     var whichMode = 0 //O - delete; Else - update
     @IBOutlet weak var qtyLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var stepperValue: UIStepper!
     @IBAction func stepperQty(_ sender: UIStepper) {
@@ -71,7 +72,7 @@ class PopUpViewController: UIViewController {
         if whichMode == 0 {
             stepperValue.maximumValue = Double(productsArray[productRow].qty)
         } else {
-            qtyLabel.text = "How many products do you have?"
+            messageLabel.text = "How many products do you have?"
             buttonLabel.setTitle("Update", for: UIControl.State.normal)
             qtyLabel.text = "1"
         }
