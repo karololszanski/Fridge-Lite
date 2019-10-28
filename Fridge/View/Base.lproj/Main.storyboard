@@ -229,7 +229,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="deleteButton:" destination="Bko-3y-Ftn" eventType="touchUpInside" id="FRB-RB-0Pe"/>
+                                            <action selector="buttonPopUp:" destination="Bko-3y-Ftn" eventType="touchUpInside" id="FRB-RB-0Pe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -264,6 +264,7 @@
                         <viewLayoutGuide key="safeArea" id="iQw-VT-Z2d"/>
                     </view>
                     <connections>
+                        <outlet property="buttonLabel" destination="yfm-bz-cdp" id="dgH-tU-9Le"/>
                         <outlet property="qtyLabel" destination="28f-YR-XYD" id="mR4-he-0ys"/>
                         <outlet property="stepperValue" destination="l0Z-L8-uY0" id="aJP-Zz-nWy"/>
                     </connections>

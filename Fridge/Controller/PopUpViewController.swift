@@ -12,12 +12,26 @@ import SQLite
 class PopUpViewController: UIViewController {
     
     var productRow = 0
+    var whichMode = 0
     @IBOutlet weak var qtyLabel: UILabel!
+    @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var stepperValue: UIStepper!
     @IBAction func stepperQty(_ sender: UIStepper) {
         qtyLabel.text = String(Int(stepperValue.value))
     }
-    @IBAction func deleteButton(_ sender: UIButton) {
+    @IBAction func buttonPopUp(_ sender: UIButton) {
+        
+        if whichMode == 0 {
+            deleteProduct()
+        } else {
+            updateProduct()
+        }
+        
+        DataManager.shared.firstVC.myTableView.reloadData()
+        self.view.removeFromSuperview()
+    }
+    
+    func deleteProduct(){
         let product = productsTable.filter(id == productsArray[productRow].id)
         let updateProduct = product.update(qty <- qty - Int(stepperValue.value))
         if productsArray[productRow].qty - Int(stepperValue.value) == 0{
@@ -34,8 +48,16 @@ class PopUpViewController: UIViewController {
                     print(error)
                 }
         }
-        DataManager.shared.firstVC.myTableView.reloadData()
-        self.view.removeFromSuperview()
+    }
+    
+    func updateProduct(){
+        let product = productsTable.filter(id == productsArray[productRow].id)
+        let updateProduct = product.update(qty <- Int(stepperValue.value))
+        do {
+            try databaseData.run(updateProduct)
+            } catch {
+                print(error)
+        }
     }
     
     @IBAction func closePopUp(_ sender: UIButton) {
@@ -46,13 +68,21 @@ class PopUpViewController: UIViewController {
         overrideUserInterfaceStyle = .light
         stepperValue.minimumValue = 1
         stepperValue.value = 1
-        stepperValue.maximumValue = Double(productsArray[productRow].qty)
+        if whichMode == 0 {
+            stepperValue.maximumValue = Double(productsArray[productRow].qty)
+        } else {
+            qtyLabel.text = "How many products do you have?"
+            buttonLabel.setTitle("Update", for: UIControl.State.normal)
+            qtyLabel.text = "1"
+        }
+        
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
     }
     
-    func updatingQty(row : Int){
+    func updatingQty(row : Int, whichMode: Int){
         productRow = row
+        self.whichMode = whichMode
     }
     
 

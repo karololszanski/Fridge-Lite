@@ -39,29 +39,55 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            
-            print("Index product: ", productsArray[indexPath.row].id)
-            let product = productsTable.filter(id == productsArray[indexPath.row].id)
-            if  productsArray[indexPath.row].qty > 1{
-                let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
-                popOverVC.updatingQty(row: indexPath.row)
-                self.addChild(popOverVC)
-                popOverVC.view.frame = self.view.frame
-                self.view.addSubview(popOverVC.view)
-                popOverVC.didMove(toParent: self)
-            }
-            else {
-                let deleteProduct = product.delete()
-                do {
-                    try databaseData.run(deleteProduct)
-                } catch {
-                    print(error)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(
+            style: .normal,
+            title: "Delete",
+            handler: { (delete, view, completion) in
+                print("Index product: ", productsArray[indexPath.row].id)
+                let product = productsTable.filter(id == productsArray[indexPath.row].id)
+                if  productsArray[indexPath.row].qty > 1{
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+                    popOverVC.updatingQty(row: indexPath.row, whichMode: 0)
+                    self.addChild(popOverVC)
+                    popOverVC.view.frame = self.view.frame
+                    self.view.addSubview(popOverVC.view)
+                    popOverVC.didMove(toParent: self)
                 }
-            }
-            myTableView.reloadData()
-        }
+                else {
+                    let deleteProduct = product.delete()
+                    do {
+                        try databaseData.run(deleteProduct)
+                    } catch {
+                        print(error)
+                    }
+                }
+                self.myTableView.reloadData()
+                completion(true)
+        })
+        
+        let update = UIContextualAction(
+            style: .normal,
+            title: "Update",
+            handler: { (action, view, completion) in
+                let product = productsTable.filter(id == productsArray[indexPath.row].id)
+                if  productsArray[indexPath.row].qty > 1{
+                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+                    popOverVC.updatingQty(row: indexPath.row, whichMode: 1)
+                    self.addChild(popOverVC)
+                    popOverVC.view.frame = self.view.frame
+                    self.view.addSubview(popOverVC.view)
+                    popOverVC.didMove(toParent: self)
+                }
+                completion(true)
+        })
+
+        //action.image = UIImage(named: "My Image")
+        delete.backgroundColor = .red
+        update.backgroundColor = .blue
+        let configuration = UISwipeActionsConfiguration(actions: [delete, update])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
     }
     
     override func viewDidAppear(_ animated: Bool) {
