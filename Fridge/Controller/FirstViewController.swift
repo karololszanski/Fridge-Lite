@@ -38,14 +38,19 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let dateFromString = dateFormatter.date(from: productsArray[indexPath.row].date)
         cell.headlineTextLabel?.text = productsArray[indexPath.row].date
-        if (dateFromString?.distance(to: Date()))! > TimeInterval(-172800) {
+        if ((dateFromString?.distance(to: Date()))! > TimeInterval(-172800)) && ((dateFromString?.distance(to: Date()))! < TimeInterval(86400)){ //Shows expiring warning when time interval is between (2...0) days
+            print(productsArray[indexPath.row].id)
             print("Date interval = ", dateFromString?.distance(to: Date()))
             cell.headlineTextLabel?.textColor = .red
             cell.warningLabel?.text = "Expiring soon!"
             cell.warningLabel.textColor = .red
-        } else if (dateFromString?.distance(to: Date()))! >= TimeInterval(0) {
+        } else if (dateFromString?.distance(to: Date()))! >= TimeInterval(86400) { //Shows expired warning when time interval is between (...0] days
+            cell.headlineTextLabel?.textColor = .red
             cell.warningLabel?.text = "Expired!"
             cell.warningLabel.textColor = .red
+        } else {
+            cell.headlineTextLabel?.textColor = .black
+            cell.warningLabel?.text = ""
         }
         cell.QtyLabel?.text = String(productsArray[indexPath.row].qty)
 

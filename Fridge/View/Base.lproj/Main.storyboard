@@ -297,10 +297,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name of a product.." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zN-ED-sdK">
-                                        <rect key="frame" x="30" y="78" width="353" height="34"/>
+                                        <rect key="frame" x="30" y="78" width="353" height="40"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="3zo-6b-j8v"/>
+                                            <constraint firstAttribute="height" constant="40" id="3zo-6b-j8v"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -311,7 +311,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXm-iz-D7U">
-                                        <rect key="frame" x="30" y="139" width="334" height="37"/>
+                                        <rect key="frame" x="30" y="145" width="334" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="evI-ak-51C"/>
                                         </constraints>
@@ -330,7 +330,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="CiT-8Z-FsZ">
-                                        <rect key="frame" x="21" y="190" width="372" height="231"/>
+                                        <rect key="frame" x="21" y="196" width="372" height="225"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </datePicker>
                                 </subviews>
