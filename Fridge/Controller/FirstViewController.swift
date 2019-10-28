@@ -16,6 +16,10 @@ class HeadlineTableViewCell: UITableViewCell {
     @IBOutlet weak var QtyLabel: UILabel!
 }
 
+class DataManager {
+        static let shared = DataManager()
+        var firstVC = FirstViewController()}
+
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +69,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         } catch { print(error)}
         
         creatingTable()
-        
+        DataManager.shared.firstVC = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }

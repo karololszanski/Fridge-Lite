@@ -31,7 +31,9 @@ class SecondViewController: UIViewController {
         inputName.text = ""
         inputDate.date = Date()
         
+        DataManager.shared.firstVC.myTableView.reloadData()
         dismiss(animated: true) {}
+        
     }
     
     override func viewDidLoad() {
