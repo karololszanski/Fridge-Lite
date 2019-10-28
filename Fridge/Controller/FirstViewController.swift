@@ -75,27 +75,25 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                         print(error)
                     }
                 }
-                self.myTableView.reloadData()
                 completion(true)
         })
         
         let update = UIContextualAction(
             style: .normal,
             title: "Update",
-            handler: { (action, view, completion) in
-                let product = productsTable.filter(id == productsArray[indexPath.row].id)
-                if  productsArray[indexPath.row].qty > 1{
-                    let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+            handler: { (update, view, completion) in
+                let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
                     popOverVC.updatingQty(row: indexPath.row, whichMode: 1)
                     self.addChild(popOverVC)
                     popOverVC.view.frame = self.view.frame
                     self.view.addSubview(popOverVC.view)
                     popOverVC.didMove(toParent: self)
-                }
+                
+                self.myTableView.reloadData()
                 completion(true)
         })
-
         //action.image = UIImage(named: "My Image")
+        
         delete.backgroundColor = .red
         update.backgroundColor = .blue
         let configuration = UISwipeActionsConfiguration(actions: [delete, update])
