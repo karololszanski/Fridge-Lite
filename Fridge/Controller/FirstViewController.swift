@@ -13,7 +13,7 @@ class HeadlineTableViewCell: UITableViewCell {
     
     @IBOutlet weak var headlineTitleLabel: UILabel!
     @IBOutlet weak var headlineTextLabel: UILabel!
-    @IBOutlet weak var headlineImageView: UIImageView!
+    @IBOutlet weak var QtyLabel: UILabel!
 }
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -30,7 +30,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                             as! HeadlineTableViewCell
         cell.headlineTitleLabel?.text = productsArray[indexPath.row].name
         cell.headlineTextLabel?.text = productsArray[indexPath.row].date
-        //cell.headlineImageView?.image = UIImage(named: headline.image)
+        cell.QtyLabel?.text = String(productsArray[indexPath.row].qty)
 
         return cell
     }
