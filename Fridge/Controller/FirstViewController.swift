@@ -44,11 +44,21 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             print("Index product: ", productsArray[indexPath.row].id)
             let product = productsTable.filter(id == productsArray[indexPath.row].id)
-            let deleteProduct = product.delete()
-            do {
-                try databaseData.run(deleteProduct)
-            } catch {
-                print(error)
+            if  productsArray[indexPath.row].qty > 1{
+                let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+                popOverVC.updatingQty(row: indexPath.row)
+                self.addChild(popOverVC)
+                popOverVC.view.frame = self.view.frame
+                self.view.addSubview(popOverVC.view)
+                popOverVC.didMove(toParent: self)
+            }
+            else {
+                let deleteProduct = product.delete()
+                do {
+                    try databaseData.run(deleteProduct)
+                } catch {
+                    print(error)
+                }
             }
             myTableView.reloadData()
         }

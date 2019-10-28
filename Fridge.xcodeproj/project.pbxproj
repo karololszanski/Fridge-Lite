@@ -15,6 +15,7 @@
 		2365C3132360F7720087951A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2365C3122360F7720087951A /* Assets.xcassets */; };
 		2365C3162360F7720087951A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2365C3142360F7720087951A /* LaunchScreen.storyboard */; };
 		2365C31E2360FE3B0087951A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2365C31D2360FE3B0087951A /* Data.swift */; };
+		239930A02366FD670030EADF /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399309F2366FD670030EADF /* PopUpViewController.swift */; };
 		23D9048123638F2000DA64F3 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D9047323638F0800DA64F3 /* SQLite.framework */; };
 		23D9048223638F2000DA64F3 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23D9047323638F0800DA64F3 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		2365C3152360F7720087951A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2365C3172360F7720087951A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2365C31D2360FE3B0087951A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2399309F2366FD670030EADF /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		23D9046823638F0800DA64F3 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../../../../../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 				2365C3092360F7710087951A /* SceneDelegate.swift */,
 				2365C30B2360F7710087951A /* FirstViewController.swift */,
 				2365C30D2360F7710087951A /* SecondViewController.swift */,
+				2399309F2366FD670030EADF /* PopUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2365C30E2360F7710087951A /* SecondViewController.swift in Sources */,
+				239930A02366FD670030EADF /* PopUpViewController.swift in Sources */,
 				2365C31E2360FE3B0087951A /* Data.swift in Sources */,
 				2365C30C2360F7710087951A /* FirstViewController.swift in Sources */,
 				2365C3082360F7710087951A /* AppDelegate.swift in Sources */,

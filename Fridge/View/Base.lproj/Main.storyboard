@@ -118,6 +118,72 @@
             </objects>
             <point key="canvasLocation" x="748" y="-320.68965517241378"/>
         </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="7dJ-fK-nZb">
+            <objects>
+                <viewController storyboardIdentifier="popUpVC" id="Bko-3y-Ftn" customClass="PopUpViewController" customModule="Fridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PKl-yT-Ys9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XtE-Fp-Rzu">
+                                <rect key="frame" x="67" y="247" width="240" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many products would you like to delete?" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVl-bK-inH">
+                                        <rect key="frame" x="13" y="8" width="214" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="l0Z-L8-uY0">
+                                        <rect key="frame" x="73" y="123" width="94" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="stepperQty:" destination="Bko-3y-Ftn" eventType="valueChanged" id="mu3-KL-MZl"/>
+                                        </connections>
+                                    </stepper>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfm-bz-cdp">
+                                        <rect key="frame" x="98" y="174" width="45" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteButton:" destination="Bko-3y-Ftn" eventType="touchUpInside" id="FRB-RB-0Pe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed2-S3-cT0">
+                                        <rect key="frame" x="222" y="0.0" width="18" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="closePopUp:" destination="Bko-3y-Ftn" eventType="touchUpInside" id="aB0-Iw-V15"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28f-YR-XYD">
+                                        <rect key="frame" x="111" y="87" width="45" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-BoldItalic" family="Rockwell" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iQw-VT-Z2d"/>
+                    </view>
+                    <connections>
+                        <outlet property="qtyLabel" destination="28f-YR-XYD" id="mR4-he-0ys"/>
+                        <outlet property="stepperValue" destination="l0Z-L8-uY0" id="aJP-Zz-nWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4O-Ou-Ewd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639.2" y="-324.38423645320199"/>
+        </scene>
         <!--Add-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -213,5 +279,6 @@
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="shelves1" width="1242" height="2208"/>
         <image name="tray.2.fill" catalog="system" width="64" height="56"/>
+        <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
 </document>
