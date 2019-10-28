@@ -67,11 +67,17 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
         myTableView.reloadData()
     }
+    @IBOutlet weak var constrainTableFridge: NSLayoutConstraint!
     
     @IBOutlet weak var myTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
+        let screenSize = UIScreen.main.bounds
+        let rowHeight = screenSize.height/7.382
+        myTableView.rowHeight = rowHeight
+        constrainTableFridge.constant = screenSize.height/20.3
+        print(constrainTableFridge.constant)
         do {
             let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             let fileUrl = documentDirectory.appendingPathComponent("products").appendingPathExtension("sqlite3")
@@ -88,6 +94,5 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @objc func dismissKeyboard() {
     view.endEditing(true)
     }
-
 }
 
